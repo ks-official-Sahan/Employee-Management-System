@@ -14,7 +14,7 @@ namespace Employee_Management_System
     {
         private Button currentButton;
         private Random random;
-        private int tempIndex;
+        //private int tempIndex;
         private Form activeForm;
 
         public user_dashboard()
