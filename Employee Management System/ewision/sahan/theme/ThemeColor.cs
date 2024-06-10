@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Employee_Management_System
+namespace Employee_Management_System.ewision.sahan.theme
 {
     public static class ThemeColor
     {

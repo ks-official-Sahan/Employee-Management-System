@@ -1,6 +1,6 @@
 ﻿namespace Employee_Management_System
 {
-    partial class user_dashboard
+    partial class UserDashboard
     {
         /// <summary>
         /// Required designer variable.

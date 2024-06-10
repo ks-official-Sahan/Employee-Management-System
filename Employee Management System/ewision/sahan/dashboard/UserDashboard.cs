@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System
 {
-    public partial class user_dashboard : Form
+    public partial class UserDashboard : Form
     {
         private Button currentButton;
         private Random random;
         //private int tempIndex;
         private Form activeForm;
 
-        public user_dashboard()
+        public UserDashboard()
         {
             InitializeComponent();
             random = new Random();

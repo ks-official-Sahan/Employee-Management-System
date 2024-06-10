@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System
 {
-    public partial class admin_login : Form
+    public partial class AdminLogin : Form
     {
-        public admin_login()
+        public AdminLogin()
         {
             InitializeComponent();
         }

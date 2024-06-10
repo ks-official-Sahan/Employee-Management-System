@@ -1,8 +1,8 @@
 namespace Employee_Management_System
 {
-    public partial class Form1 : Form
+    public partial class Application : Form
     {
-        public Form1()
+        public Application()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace Employee_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            user_login user_Login = new user_login();
+            UserLogin user_Login = new UserLogin();
             user_Login.Show();
             this.Hide();
             

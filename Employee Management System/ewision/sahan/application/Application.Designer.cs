@@ -1,6 +1,6 @@
 ﻿namespace Employee_Management_System
 {
-    partial class Form1
+    partial class Application
     {
         /// <summary>
         ///  Required designer variable.

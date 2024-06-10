@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject>Employee_Management_System.ewision.sahan.main.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

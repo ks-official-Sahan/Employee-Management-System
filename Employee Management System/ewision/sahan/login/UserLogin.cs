@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System
 {
-    public partial class user_login : Form
+    public partial class UserLogin : Form
     {
 
-        public user_login()
+        public UserLogin()
         {
             InitializeComponent();
         }
@@ -55,7 +55,7 @@ namespace Employee_Management_System
             else
             {
 
-                user_dashboard user_dashboard = new user_dashboard();
+                UserDashboard user_dashboard = new UserDashboard();
                 user_dashboard.Show();
                 this.Hide();
             }

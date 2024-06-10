@@ -1,6 +1,6 @@
 ﻿namespace Employee_Management_System
 {
-    partial class admin_login
+    partial class AdminLogin
     {
         /// <summary>
         /// Required designer variable.
