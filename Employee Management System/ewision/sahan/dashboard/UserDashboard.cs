@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Employee_Management_System.ewision.sahan.model;
+using Employee_Management_System.user_dashboard_pages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +19,8 @@ namespace Employee_Management_System
         //private int tempIndex;
         private Form activeForm;
 
+        public static User User { get; set; }
+
         public UserDashboard()
         {
             InitializeComponent();
@@ -24,6 +28,16 @@ namespace Employee_Management_System
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+            currentButton = Profile;
+            activeForm = new Form();
+            //OpenChildForm(new Profile(), Profile);
+        }
+
+        public void SetUser(User user)
+        {
+            User = user;
+            OpenChildForm(new Profile(), Profile);
         }
 
         private void ActivateButton(object btnSender)
@@ -54,7 +68,7 @@ namespace Employee_Management_System
         {
             if (activeForm != null)
                 activeForm.Close();
-            ActivateButton(btnSender);
+            //ActivateButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -77,7 +91,7 @@ namespace Employee_Management_System
 
         private void Profile_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new user_dashboard_pages.Profile(), sender);
+            OpenChildForm(new Profile(), sender);
         }
 
         private void Leave_Click(object sender, EventArgs e)

@@ -121,7 +121,7 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
@@ -133,21 +133,19 @@
             label1.TextAlign = ContentAlignment.TopCenter;
             label1.Click += label1_Click;
             // 
-            // user_login
+            // UserLogin
             // 
-            AutoScaleDimensions = new SizeF(106F, 106F);
-            AutoScaleMode = AutoScaleMode.Dpi;
-            AutoSize = true;
+            AutoScaleMode = AutoScaleMode.None;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(1121, 787);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "user_login";
+            KeyPreview = true;
+            Name = "UserLogin";
             Opacity = 0.98D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "user_login";
-            WindowState = FormWindowState.Maximized;
             Load += user_login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

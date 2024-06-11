@@ -91,21 +91,23 @@ namespace Employee_Management_System.ewision.sahan.model
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlCommand cmd = new MySqlCommand(query, GetConnection());
 
                 if (query.StartsWith("SELECT"))
                 {
                     //Create a data reader and Execute the command
                     MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                    MessageBox.Show("Query Executed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Query Executed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CloseConnection();
                     return dataReader;
                 }
                 else
                 {
                     cmd.ExecuteNonQuery(); //Execute command
 
-                    MessageBox.Show("Query Executed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Query Executed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CloseConnection();
                     return null;
                 }
 
