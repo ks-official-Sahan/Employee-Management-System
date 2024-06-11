@@ -15,7 +15,8 @@ namespace Employee_Management_System.ewision.sahan.model
         private static MySqlConnection connection = GetConnection();
         private static MySqlConnection GetConnection()
         {
-            string connectionString = "datasource=localhost;port=3306;username=sahan;password=Sahan@123;database=EMS";
+            //string connectionString = "datasource=localhost;port=3306;username=sahan;password=Sahan@123;database=EMS";
+            string connectionString = "datasource=localhost;port=3306;username=root;password=LeaveMe@666;database=EMS";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

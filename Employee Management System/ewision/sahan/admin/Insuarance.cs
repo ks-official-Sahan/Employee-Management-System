@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System.admin_dashboard_pages
 {
-    public partial class Community : Form
+    public partial class Insuarance : Form
     {
-        public Community()
+        public Insuarance()
         {
             InitializeComponent();
         }
 
-        private void Community_Load(object sender, EventArgs e)
+        private void Insuarance_Load(object sender, EventArgs e)
         {
 
         }
