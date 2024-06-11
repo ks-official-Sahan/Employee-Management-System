@@ -25,30 +25,30 @@ namespace Employee_Management_System.admin_dashboard_pages
         }
         private void Init()
         {
-            LoadUserData();
+            //LoadUserData();
         }
 
         private void LoadUserData()
         {
-            //string query = "SELECT * FROM `user` INNER JOIN `title` ON `user`.`title_id` = `title`.`id` INNER JOIN `status` ON `user`.`status_id` = `status`.`id` WHERE `uid` = '" + UserDashboard.User.UID + "'"; //admin
-            string query = "SELECT * FROM `user` INNER JOIN `title` ON `user`.`title_id` = `title`.`id` INNER JOIN `department` ON `user`.`department_id` = `department`.`id` INNER JOIN `designation` ON `user`.`designation_id` = `designation`.`id` WHERE `uid` = '" + UserDashboard.User.UID + "'"; //user
+            string query = "SELECT * FROM `user` INNER JOIN `title` ON `user`.`title_id` = `title`.`id` WHERE `uid` = '" + UserDashboard.User.UID + "'"; //admin
+            //string query = "SELECT * FROM `user` INNER JOIN `title` ON `user`.`title_id` = `title`.`id` INNER JOIN `department` ON `user`.`department_id` = `department`.`id` INNER JOIN `designation` ON `user`.`designation_id` = `designation`.`id` WHERE `uid` = '" + UserDashboard.User.UID + "'"; //user
             MySqlDataReader resultSet = MySQL.Execute(query);
 
             if (resultSet.Read())
             {
                 //user.Dob = string.Format("{0:MM/dd/yyyy}", resultSet["dob"]);
-                user.Designation = (string)resultSet["designation"];
-                user.Department = (string)resultSet["department"];
+                //user.Designation = (string)resultSet["designation"];
+                //user.Department = (string)resultSet["department"];
 
-                MySqlDataReader address = MySQL.Execute("SELECT * FROM `address` WHERE `user_uid`='" + user.UID + "'");
+                //MySqlDataReader address = MySQL.Execute("SELECT * FROM `address` WHERE `user_uid`='" + user.UID + "'");
 
-                if (resultSet.Read())
-                {
-                    textBox6.Text = (string)address["line1"];
-                    textBox7.Text = (string)address["line2"];
-                    textBox8.Text = (string)address["city"];
-                    textBox9.Text = (string)address["pcode"];
-                }
+                //if (resultSet.Read())
+                //{
+                //    textBox6.Text = (string)address["line1"];
+                //    textBox7.Text = (string)address["line2"];
+                //    textBox8.Text = (string)address["city"];
+                //    textBox9.Text = (string)address["pcode"];
+                //}
             }
             else
             {
