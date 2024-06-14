@@ -36,9 +36,9 @@
             // panel1
             // 
             panel1.BackColor = Color.LightGray;
-            panel1.Location = new Point(25, 38);
+            panel1.Location = new Point(25, 43);
             panel1.Name = "panel1";
-            panel1.Size = new Size(920, 567);
+            panel1.Size = new Size(920, 643);
             panel1.TabIndex = 1;
             // 
             // textBox1
@@ -47,10 +47,10 @@
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.ForeColor = SystemColors.GradientInactiveCaption;
-            textBox1.Location = new Point(25, 641);
+            textBox1.Location = new Point(25, 726);
             textBox1.MinimumSize = new Size(447, 33);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(730, 33);
+            textBox1.Size = new Size(730, 20);
             textBox1.TabIndex = 3;
             textBox1.Text = " Message";
             // 
@@ -60,19 +60,19 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(821, 641);
+            button1.Location = new Point(821, 726);
             button1.Name = "button1";
-            button1.Size = new Size(124, 33);
+            button1.Size = new Size(124, 37);
             button1.TabIndex = 28;
             button1.Text = "Send";
             button1.UseVisualStyleBackColor = false;
             // 
             // Community
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(970, 726);
+            ClientSize = new Size(970, 823);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(panel1);
