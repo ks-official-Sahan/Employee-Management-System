@@ -217,11 +217,13 @@ namespace Employee_Management_System.admin_dashboard_pages
                     MySQL.Execute(query);
                 }
             }
-
         }
 
         private void Reset()
         {
+            line1Box.Text = line2Box.Text = cityBox.Text = pcodeBox.Text = fnameBox.Text = lnameBox.Text = mobileBox.Text = emailBox.Text = passwordBox.Text = cPaswordBox.Text = string.Empty;
+            titleComboBox.SelectedItem = designationComboBox.SelectedItem = departmentComboBox.SelectedItem = "Select";
+
             line1Box.Text = string.Empty;
             line2Box.Text = string.Empty;
             cityBox.Text = string.Empty;

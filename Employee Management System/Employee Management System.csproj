@@ -11,6 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="ewision\sahan\admin\Community.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ewision\sahan\dashboard\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>

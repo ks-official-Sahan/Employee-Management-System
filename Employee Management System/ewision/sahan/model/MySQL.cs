@@ -4,6 +4,7 @@ using Mysqlx.Prepare;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -150,6 +151,49 @@ namespace Employee_Management_System.ewision.sahan.model
             }
         }
 
+        public static void SearchToTable(string query)
+        {
+            try
+            {
+                MySqlConnection conn = GetConnection() as MySqlConnection;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                //cmd.ExecuteNonQuery();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                //this.grvItems.DataSource = dataSet;
+                //this.grvItems.DataBind();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Query Execution Error! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static void SearchToTable(string query, DataGridView dgv)
+        {
+            try
+            {
+                MySqlConnection conn = GetConnection() as MySqlConnection;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                //cmd.ExecuteNonQuery();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dgv.DataSource = dt;
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Query Execution Error! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         //public static void Main(string[] args)
         //{
