@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Employee_Management_System.user_dashboard_pages
+namespace Employee_Management_System.admin_dashboard_pages
 {
-    public partial class Community : Form
+    public partial class CommunityA : Form
     {
-        public Community()
+        public CommunityA()
         {
             InitializeComponent();
         }
