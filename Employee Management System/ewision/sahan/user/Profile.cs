@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Employee_Management_System.user_dashboard_pages
@@ -78,10 +79,62 @@ namespace Employee_Management_System.user_dashboard_pages
             string email = textBox1.Text;
             string mobile = textBox2.Text;
             
+            if (email != user.Email || mobile != user.Mobile)
+            {
+                MySQL.Execute("UPDATE `user` SET `email`='" + email + "', `mobile`='" + mobile + "' WHERE `user_uid`='" + user.UID + "'");
+            }
+
+            updatePassword();
+
+            UpdateAddress();
+        }
+
+        private void updatePassword()
+        {
             string password = textBox3.Text;
             string newPass = textBox4.Text;
             string rePass = textBox5.Text;
 
+            if (!newPass.Equals("") || newPass != null)
+            {
+                if (password.Equals("") || password == null)
+                {
+                    MessageBox.Show("Please enter Current Password to update your password");
+                }
+                else if (rePass.Equals("") || rePass == null)
+                {
+                    MessageBox.Show("Please re-enter New Password in Confirm Password to update your password");
+                }
+                else
+                {
+                    if (newPass != rePass)
+                    {
+                        MessageBox.Show("Passwords doesn't match");
+                    } else
+                    {
+                        string query = "SELECT * FROM `user` WHERE `uid` = '" + UserDashboard.User.UID + "'"; //user
+                        MySqlDataReader resultSet = MySQL.Execute(query);
+
+                        if (resultSet.Read())
+                        {
+                            if ((string) resultSet["password"] != password)
+                            {
+                                MessageBox.Show("Please enter the your correct old Password to update your password");
+                            } else
+                            {
+                                MySQL.Execute("UPDATE `user` SET `password`='" + newPass + "' WHERE `user_uid`='" + user.UID + "'");
+                            }
+                        } else
+                        {
+                            MessageBox.Show("Something failed.");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void UpdateAddress()
+        {
             string line1 = textBox6.Text;
             string line2 = textBox7.Text;
             string city = textBox8.Text;
@@ -101,7 +154,7 @@ namespace Employee_Management_System.user_dashboard_pages
                 }
                 else
                 {
-                    MySQL.Execute("INSERT INTO `address` (`line1`, `line2`, `city`, `pcode`, `user_uid`) VALUES ('"+line1+"', '"+line2+"', '"+city+"', '"+pcode+"', '"+user.UID+"')");
+                    MySQL.Execute("INSERT INTO `address` (`line1`, `line2`, `city`, `pcode`, `user_uid`) VALUES ('" + line1 + "', '" + line2 + "', '" + city + "', '" + pcode + "', '" + user.UID + "')");
                 }
 
             }
@@ -136,5 +189,6 @@ namespace Employee_Management_System.user_dashboard_pages
         {
             UpdateUser();
         }
+
     }
 }

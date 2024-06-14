@@ -2,10 +2,12 @@
 using MySql.Data.MySqlClient;
 using Mysqlx.Prepare;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Employee_Management_System.ewision.sahan.model
 {
@@ -112,13 +114,31 @@ namespace Employee_Management_System.ewision.sahan.model
                 }
 
             }
-            catch (MySqlException ex)
+            catch (MySqlException ex) 
             {
                 MessageBox.Show("Query Execution Error! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
 
+
+        public static int LastInsertID()
+        {
+            try
+            {
+                object result = MySqlHelper.ExecuteScalar(GetConnection(), "SELECT LAST_INSERT_ID();");
+                if (result != null)
+                {
+                    return (int)result; 
+                }
+                return 0;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Query Execution Error! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
 
 
         //public static void Main(string[] args)
