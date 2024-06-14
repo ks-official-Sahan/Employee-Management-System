@@ -20,7 +20,7 @@ namespace Employee_Management_System.admin_dashboard_pages
             DisplayLeaveData(leaaveTable);
         }
 
-        public static void DisplayLeaveData(DataGridView dvg)
+        public static void DisplayLeaveData(DataGridView leaaveTable)
         {
 
             string query = "SELECT * FROM `leaves` INNER JOIN `user` ON `user`.`uid`=`leaves`.`user_uid` INNER JOIN `status` ON `status`.`id` = `leaves`.`status_id`";
@@ -29,14 +29,14 @@ namespace Employee_Management_System.admin_dashboard_pages
 
             if (resultSet.HasRows)
             {
-                dvg.Rows.Clear();
+                leaaveTable.Rows.Clear();
 
                 while (resultSet.Read())
                 {
 
                     DataGridViewRow newRow = new DataGridViewRow();
 
-                    newRow.CreateCells(dvg);
+                    newRow.CreateCells(leaaveTable);
                     newRow.Cells[0].Value = resultSet["id"];
                     newRow.Cells[1].Value = resultSet["date"];
                     newRow.Cells[2].Value = resultSet["reason"];
@@ -46,7 +46,7 @@ namespace Employee_Management_System.admin_dashboard_pages
                     newRow.Cells[6].Value = "Reject";
 
 
-                    dvg.Rows.Add(newRow);
+                    leaaveTable.Rows.Add(newRow);
 
                 }
             }

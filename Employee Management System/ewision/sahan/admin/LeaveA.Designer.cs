@@ -79,7 +79,7 @@
             leaaveTable.Location = new Point(3, 0);
             leaaveTable.Name = "leaaveTable";
             leaaveTable.RowHeadersWidth = 45;
-            leaaveTable.Size = new Size(941, 711);
+            leaaveTable.Size = new Size(941, 629);
             leaaveTable.TabIndex = 1;
             leaaveTable.CellClick += leaaveTable_CellClick;
             // 
