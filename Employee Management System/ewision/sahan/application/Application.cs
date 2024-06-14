@@ -37,7 +37,9 @@ namespace Employee_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            AdminLogin adminLogin = new AdminLogin();
+            adminLogin.Show();
+            this.Hide();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

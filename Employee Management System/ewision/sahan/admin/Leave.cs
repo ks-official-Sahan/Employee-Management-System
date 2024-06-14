@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System.admin_dashboard_pages
 {
-    public partial class Community : Form
+    public partial class Leave : Form
     {
-        public Community()
+        public Leave()
         {
             InitializeComponent();
         }
 
-        private void Community_Load(object sender, EventArgs e)
+        private void Leave_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
