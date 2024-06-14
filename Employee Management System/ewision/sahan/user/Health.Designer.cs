@@ -30,8 +30,13 @@
         {
             button1 = new Button();
             dateTimePicker1 = new DateTimePicker();
-            tableLayoutPanel1 = new TableLayoutPanel();
             reasonBox = new TextBox();
+            dvg = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dvg).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -40,7 +45,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(771, 760);
+            button1.Location = new Point(758, 760);
             button1.Name = "button1";
             button1.Size = new Size(184, 41);
             button1.TabIndex = 24;
@@ -55,29 +60,61 @@
             dateTimePicker1.Size = new Size(208, 25);
             dateTimePicker1.TabIndex = 25;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 255F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 292F));
-            tableLayoutPanel1.Location = new Point(34, 34);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(921, 671);
-            tableLayoutPanel1.TabIndex = 27;
-            // 
             // reasonBox
             // 
             reasonBox.BorderStyle = BorderStyle.FixedSingle;
             reasonBox.Location = new Point(262, 760);
             reasonBox.Multiline = true;
             reasonBox.Name = "reasonBox";
-            reasonBox.Size = new Size(487, 41);
+            reasonBox.Size = new Size(477, 41);
             reasonBox.TabIndex = 28;
+            // 
+            // dvg
+            // 
+            dvg.AllowUserToAddRows = false;
+            dvg.AllowUserToDeleteRows = false;
+            dvg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvg.BackgroundColor = SystemColors.ControlLightLight;
+            dvg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvg.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+            dvg.GridColor = SystemColors.Window;
+            dvg.Location = new Point(34, 36);
+            dvg.Name = "dvg";
+            dvg.ReadOnly = true;
+            dvg.RowHeadersWidth = 45;
+            dvg.Size = new Size(908, 671);
+            dvg.TabIndex = 29;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "ID";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Date";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Resizable = DataGridViewTriState.False;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Description";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Resizable = DataGridViewTriState.False;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Updated On";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Resizable = DataGridViewTriState.False;
             // 
             // Health
             // 
@@ -85,12 +122,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(967, 821);
+            Controls.Add(dvg);
             Controls.Add(reasonBox);
-            Controls.Add(tableLayoutPanel1);
             Controls.Add(dateTimePicker1);
             Controls.Add(button1);
             Name = "Health";
             Text = "Health";
+            ((System.ComponentModel.ISupportInitialize)dvg).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -98,7 +136,11 @@
         #endregion
         private Button button1;
         private DateTimePicker dateTimePicker1;
-        private TableLayoutPanel tableLayoutPanel1;
         private TextBox reasonBox;
+        private DataGridView dvg;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
     }
 }

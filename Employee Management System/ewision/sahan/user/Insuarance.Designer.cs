@@ -31,7 +31,15 @@
             dateTimePicker1 = new DateTimePicker();
             button1 = new Button();
             panel1 = new Panel();
+            dvg = new DataGridView();
             reasonBox = new TextBox();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dvg).BeginInit();
             SuspendLayout();
             // 
             // dateTimePicker1
@@ -53,14 +61,32 @@
             button1.TabIndex = 26;
             button1.Text = "Submit";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.LightGray;
+            panel1.Controls.Add(dvg);
             panel1.Location = new Point(25, 25);
             panel1.Name = "panel1";
             panel1.Size = new Size(920, 683);
             panel1.TabIndex = 27;
+            // 
+            // dvg
+            // 
+            dvg.AllowUserToAddRows = false;
+            dvg.AllowUserToDeleteRows = false;
+            dvg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvg.BackgroundColor = SystemColors.ControlLightLight;
+            dvg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvg.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
+            dvg.GridColor = SystemColors.Window;
+            dvg.Location = new Point(6, 6);
+            dvg.Name = "dvg";
+            dvg.ReadOnly = true;
+            dvg.RowHeadersWidth = 45;
+            dvg.Size = new Size(908, 671);
+            dvg.TabIndex = 30;
             // 
             // reasonBox
             // 
@@ -69,6 +95,44 @@
             reasonBox.Name = "reasonBox";
             reasonBox.Size = new Size(493, 49);
             reasonBox.TabIndex = 28;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "ID";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Date";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Resizable = DataGridViewTriState.False;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Description";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Resizable = DataGridViewTriState.False;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Applied On";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Resizable = DataGridViewTriState.False;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Status";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
             // 
             // Insuarance
             // 
@@ -83,6 +147,8 @@
             Name = "Insuarance";
             Text = "Insuarance";
             Load += Insuarance_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dvg).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -93,5 +159,11 @@
         private Button button1;
         private Panel panel1;
         private TextBox reasonBox;
+        private DataGridView dvg;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
     }
 }

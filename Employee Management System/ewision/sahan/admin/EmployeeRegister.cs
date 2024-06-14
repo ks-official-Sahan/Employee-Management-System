@@ -36,6 +36,10 @@ namespace Employee_Management_System.admin_dashboard_pages
 
         }
 
+        private Dictionary<string, string> titleMap = new Dictionary<string, string>();
+        private Dictionary<string, string> departmentMap = new Dictionary<string, string>();
+        private Dictionary<string, string> designationMap = new Dictionary<string, string>();
+
         private void LoadTitles()
         {
             string query = "SELECT * FROM `title` ORDER BY `title` ASC";
@@ -52,6 +56,7 @@ namespace Employee_Management_System.admin_dashboard_pages
                 
                 //titles.Append(title);
                 titleComboBox.Items.Add(title);
+                titleMap.Add(title, dataReader["id"].ToString());
             }
 
             //titleComboBox.Items.AddRange(titles);
@@ -75,6 +80,8 @@ namespace Employee_Management_System.admin_dashboard_pages
                 
                 //departments.Append(department);
                 departmentComboBox.Items.Add(department);
+
+                departmentMap.Add(department, dataReader["id"].ToString());
             }
 
             //departmentComboBox.Items.AddRange(departments);
@@ -97,6 +104,7 @@ namespace Employee_Management_System.admin_dashboard_pages
 
                 //designations.Append(designation);
                 designationComboBox.Items.Add(designation);
+                designationMap.Add(designation, dataReader["id"].ToString());
             }
 
             //designationComboBox.Items.AddRange(designations);
@@ -163,7 +171,7 @@ namespace Employee_Management_System.admin_dashboard_pages
                 try
                 {
                     string query = "INSERT INTO `user` (`fname`, `lname`, `email`, `mobile`, `password`, `user_type_id`, `title_id`, `status_id`) " +
-                    "VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + mobile + "', '" + pass + "', '2', '1', '1')";
+                    "VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + mobile + "', '" + pass + "', '2', '" + titleMap[title] +"', '1')";
                     //MySQL.Execute(query);
                     int uid = MySQL.Insert(query);
 
@@ -186,7 +194,7 @@ namespace Employee_Management_System.admin_dashboard_pages
             string department = departmentComboBox.SelectedItem == null ? "1" : (string)departmentComboBox.SelectedItem;
             string designation = designationComboBox.SelectedItem == null ? "4" : (string)designationComboBox.SelectedItem;
             
-            string query = "UPDATE `user` SET `department_id`='1', `designation_id`='1' WHERE `uid`='" + uid + "'";
+            string query = "UPDATE `user` SET `department_id`='" + departmentMap[department] +"', `designation_id`='" + designationMap[designation] +"' WHERE `uid`='" + uid + "'";
             MySQL.Execute(query);
         }
 

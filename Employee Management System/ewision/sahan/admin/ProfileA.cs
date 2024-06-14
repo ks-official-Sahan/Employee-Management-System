@@ -30,7 +30,7 @@ namespace Employee_Management_System.admin_dashboard_pages
 
         private void LoadUserData()
         {
-            string query = "SELECT * FROM `user` INNER JOIN `title` ON `user`.`title_id` = `title`.`id` WHERE `uid` = '" + UserDashboard.User.UID + "'"; //admin
+            string query = "SELECT * FROM `user` INNER JOIN `title` ON `user`.`title_id` = `title`.`id` WHERE `uid` = '" + AdminDashboard.User.UID + "'"; //admin
             //string query = "SELECT * FROM `user` INNER JOIN `title` ON `user`.`title_id` = `title`.`id` INNER JOIN `department` ON `user`.`department_id` = `department`.`id` INNER JOIN `designation` ON `user`.`designation_id` = `designation`.`id` WHERE `uid` = '" + UserDashboard.User.UID + "'"; //user
             MySqlDataReader resultSet = MySQL.Execute(query);
 
