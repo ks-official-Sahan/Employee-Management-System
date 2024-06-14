@@ -13,11 +13,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Employee_Management_System.admin_dashboard_pages
 {
-    public partial class Profile : Form
+    public partial class ProfileA : Form
     {
 
         private User user = UserDashboard.User;
-        public Profile()
+        public ProfileA()
         {
             InitializeComponent();
 

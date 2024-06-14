@@ -1,6 +1,6 @@
 ﻿namespace Employee_Management_System.admin_dashboard_pages
 {
-    partial class Health
+    partial class HealthB
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System.admin_dashboard_pages
 {
-    public partial class Notifications : Form
+    public partial class NotificationsA : Form
     {
-        public Notifications()
+        public NotificationsA()
         {
             InitializeComponent();
         }

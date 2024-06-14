@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System.admin_dashboard_pages
 {
-    public partial class Leave : Form
+    public partial class LeaveA : Form
     {
-        public Leave()
+        public LeaveA()
         {
             InitializeComponent();
         }

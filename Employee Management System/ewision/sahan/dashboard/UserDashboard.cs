@@ -111,7 +111,7 @@ namespace Employee_Management_System
 
         private void community_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new user_dashboard_pages.CommunityA(), sender);
+            OpenChildForm(new user_dashboard_pages.Community(), sender);
         }
     }
 }

@@ -14,49 +14,39 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Employee_Management_System.admin_dashboard_pages
 {
-    public partial class Health : Form
-
+    public partial class HealthB : Form
     {
-
             
-        public Health()
+        public HealthB()
         {
             InitializeComponent();
             DisplayTableData(dataGridView1);
         }
+
         public static void DisplayTableData(DataGridView dvg) {
 
             string query = "SELECT * FROM `user`";
            
-             MySqlDataReader resultSet = MySQL.Execute(query);
+            MySqlDataReader resultSet = MySQL.Execute(query);
 
-            if (resultSet.Read())
+            if (resultSet.HasRows)
             {
+
                 dvg.Rows.Clear();
 
                 while (resultSet.Read())
                 {
-                   
-                        DataGridViewRow newRow = new DataGridViewRow();
+                    DataGridViewRow newRow = new DataGridViewRow();
 
-                        newRow.CreateCells(dvg);
-                        newRow.Cells[0].Value = resultSet["uid"];
-                        newRow.Cells[1].Value = resultSet["fname"];
-                        newRow.Cells[2].Value = resultSet["mobile"];
-                        newRow.Cells[3].Value = resultSet["email"];
+                    newRow.CreateCells(dvg);
+                    newRow.Cells[0].Value = resultSet["uid"];
+                    newRow.Cells[1].Value = resultSet["fname"];
+                    newRow.Cells[2].Value = resultSet["mobile"];
+                    newRow.Cells[3].Value = resultSet["email"];
 
-                        dvg.Rows.Add(newRow);
-                    
-
-
+                    dvg.Rows.Add(newRow);
                 }
-
-
-
             }
-
-
-
         }
 
         private void label3_Click(object sender, EventArgs e)

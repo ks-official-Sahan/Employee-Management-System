@@ -2,10 +2,13 @@
 using MySql.Data.MySqlClient;
 using Mysqlx.Prepare;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Employee_Management_System.ewision.sahan.model
 {
@@ -15,8 +18,8 @@ namespace Employee_Management_System.ewision.sahan.model
         private static MySqlConnection connection = GetConnection();
         private static MySqlConnection GetConnection()
         {
-            //string connectionString = "datasource=localhost;port=3306;username=sahan;password=Sahan@123;database=EMS";
-            string connectionString = "datasource=localhost;port=3306;username=root;password=LeaveMe@666;database=EMS";
+            string connectionString = "datasource=localhost;port=3306;username=sahan;password=Sahan@123;database=EMS";
+            //string connectionString = "datasource=localhost;port=3306;username=root;password=LeaveMe@666;database=EMS";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -106,14 +109,13 @@ namespace Employee_Management_System.ewision.sahan.model
                 else
                 {
                     cmd.ExecuteNonQuery(); //Execute command
-
                     //MessageBox.Show("Query Executed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CloseConnection();
                     return null;
                 }
 
             }
-            catch (MySqlException ex)
+            catch (MySqlException ex) 
             {
                 MessageBox.Show("Query Execution Error! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -121,6 +123,77 @@ namespace Employee_Management_System.ewision.sahan.model
         }
 
 
+        public static int Insert(string query)
+        {
+            try
+            {
+                MySqlConnection conn = GetConnection() as MySqlConnection;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                cmd.ExecuteNonQuery(); //Execute command
+                //MessageBox.Show("Query Executed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                object result = MySqlHelper.ExecuteScalar(conn, "SELECT LAST_INSERT_ID()");
+                if (result != null)
+                {
+                    string id = ((UInt64)result).ToString();
+                    //MessageBox.Show(id);
+                    CloseConnection();
+                    return Int32.Parse(id);
+                }
+                CloseConnection();
+                return 0;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Query Execution Error! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+        public static void SearchToTable(string query)
+        {
+            try
+            {
+                MySqlConnection conn = GetConnection() as MySqlConnection;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                //cmd.ExecuteNonQuery();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                //this.grvItems.DataSource = dataSet;
+                //this.grvItems.DataBind();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Query Execution Error! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static void SearchToTable(string query, DataGridView dgv)
+        {
+            try
+            {
+                MySqlConnection conn = GetConnection() as MySqlConnection;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                //cmd.ExecuteNonQuery();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dgv.DataSource = dt;
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Query Execution Error! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         //public static void Main(string[] args)
         //{

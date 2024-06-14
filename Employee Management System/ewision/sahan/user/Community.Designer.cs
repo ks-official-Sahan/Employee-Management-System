@@ -1,6 +1,6 @@
 ﻿namespace Employee_Management_System.user_dashboard_pages
 {
-    partial class CommunityA
+    partial class Community
     {
         /// <summary>
         /// Required designer variable.

@@ -86,7 +86,7 @@ namespace Employee_Management_System
 
         private void Health_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new HealthA(), sender);
+            OpenChildForm(new HealthB(), sender);
         }
 
         private void Profile_Click(object sender, EventArgs e)
@@ -112,6 +112,11 @@ namespace Employee_Management_System
         private void community_Click(object sender, EventArgs e)
         {
             OpenChildForm(new CommunityA(), sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new EmployeeRegister(), sender);
         }
     }
 }

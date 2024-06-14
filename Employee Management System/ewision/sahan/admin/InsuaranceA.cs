@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System.admin_dashboard_pages
 {
-    public partial class Insuarance : Form
+    public partial class InsuaranceA : Form
     {
-        public Insuarance()
+        public InsuaranceA()
         {
             InitializeComponent();
         }
