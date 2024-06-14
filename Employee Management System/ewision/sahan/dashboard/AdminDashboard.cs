@@ -37,7 +37,7 @@ namespace Employee_Management_System
         public void SetUser(User user)
         {
             User = user;
-            OpenChildForm(new Profile(), Profile);
+            OpenChildForm(new ProfileA(), Profile);
         }
 
         private void ActivateButton(object btnSender)
@@ -91,7 +91,7 @@ namespace Employee_Management_System
 
         private void Profile_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Profile(), sender);
+            OpenChildForm(new ProfileA(), sender);
         }
 
         private void Leave_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace Employee_Management_System
 
         private void community_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new user_dashboard_pages.Community(), sender);
+            OpenChildForm(new user_dashboard_pages.CommunityA(), sender);
         }
     }
 }

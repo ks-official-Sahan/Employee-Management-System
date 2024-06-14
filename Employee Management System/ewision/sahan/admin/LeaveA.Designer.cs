@@ -1,6 +1,6 @@
 ﻿namespace Employee_Management_System.admin_dashboard_pages
 {
-    partial class Leave
+    partial class LeaveA
     {
         /// <summary>
         /// Required designer variable.
