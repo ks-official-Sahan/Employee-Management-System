@@ -79,7 +79,6 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(fnameBox);
             groupBox1.Controls.Add(label1);
-            groupBox1.Enabled = false;
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(938, 358);
@@ -111,6 +110,7 @@
             // 
             cPaswordBox.Location = new Point(605, 291);
             cPaswordBox.Name = "cPaswordBox";
+            cPaswordBox.PasswordChar = '*';
             cPaswordBox.Size = new Size(295, 25);
             cPaswordBox.TabIndex = 11;
             // 
@@ -127,6 +127,7 @@
             // 
             passwordBox.Location = new Point(132, 291);
             passwordBox.Name = "passwordBox";
+            passwordBox.PasswordChar = '*';
             passwordBox.Size = new Size(295, 25);
             passwordBox.TabIndex = 9;
             // 
@@ -213,7 +214,6 @@
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(line1Box);
             groupBox2.Controls.Add(label12);
-            groupBox2.Enabled = false;
             groupBox2.Location = new Point(12, 474);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(938, 159);
@@ -301,7 +301,6 @@
             groupBox3.Controls.Add(label13);
             groupBox3.Controls.Add(departmentComboBox);
             groupBox3.Controls.Add(label8);
-            groupBox3.Enabled = false;
             groupBox3.Location = new Point(12, 376);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(938, 92);

@@ -17,8 +17,8 @@ namespace Employee_Management_System.ewision.sahan.model
         private static MySqlConnection connection = GetConnection();
         private static MySqlConnection GetConnection()
         {
-            //string connectionString = "datasource=localhost;port=3306;username=sahan;password=Sahan@123;database=EMS";
-            string connectionString = "datasource=localhost;port=3306;username=root;password=LeaveMe@666;database=EMS";
+            string connectionString = "datasource=localhost;port=3306;username=sahan;password=Sahan@123;database=EMS";
+            //string connectionString = "datasource=localhost;port=3306;username=root;password=LeaveMe@666;database=EMS";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -108,7 +108,6 @@ namespace Employee_Management_System.ewision.sahan.model
                 else
                 {
                     cmd.ExecuteNonQuery(); //Execute command
-
                     //MessageBox.Show("Query Executed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CloseConnection();
                     return null;
@@ -123,15 +122,25 @@ namespace Employee_Management_System.ewision.sahan.model
         }
 
 
-        public static int LastInsertID()
+        public static int Insert(string query)
         {
             try
             {
-                object result = MySqlHelper.ExecuteScalar(GetConnection(), "SELECT LAST_INSERT_ID();");
+                MySqlConnection conn = GetConnection() as MySqlConnection;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                cmd.ExecuteNonQuery(); //Execute command
+                //MessageBox.Show("Query Executed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                object result = MySqlHelper.ExecuteScalar(conn, "SELECT LAST_INSERT_ID()");
                 if (result != null)
                 {
-                    return (int)result; 
+                    string id = ((UInt64)result).ToString();
+                    //MessageBox.Show(id);
+                    CloseConnection();
+                    return Int32.Parse(id);
                 }
+                CloseConnection();
                 return 0;
             }
             catch (MySqlException ex)

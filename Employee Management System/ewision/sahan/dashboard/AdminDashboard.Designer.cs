@@ -39,6 +39,7 @@
             notification = new Button();
             community = new Button();
             panelDesktopPane = new Panel();
+            button1 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelMenu.SuspendLayout();
@@ -84,6 +85,7 @@
             panelMenu.Controls.Add(insuarance);
             panelMenu.Controls.Add(notification);
             panelMenu.Controls.Add(community);
+            panelMenu.Controls.Add(button1);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 40);
             panelMenu.Name = "panelMenu";
@@ -201,7 +203,24 @@
             panelDesktopPane.Size = new Size(950, 822);
             panelDesktopPane.TabIndex = 3;
             // 
-            // user_dashboard
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(0, 128, 255);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(3, 562);
+            button1.Name = "button1";
+            button1.Size = new Size(234, 88);
+            button1.TabIndex = 8;
+            button1.Text = " Employee Registration";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // AdminDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -211,7 +230,7 @@
             Controls.Add(panelMenu);
             Controls.Add(panel1);
             IsMdiContainer = true;
-            Name = "user_dashboard";
+            Name = "AdminDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "user_dashboard";
             Load += user_dashboard_Load;
@@ -235,5 +254,6 @@
         private Button notification;
         private Button community;
         private Panel panelDesktopPane;
+        private Button button1;
     }
 }

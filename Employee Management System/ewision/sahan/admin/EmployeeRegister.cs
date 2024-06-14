@@ -1,5 +1,6 @@
 ﻿using DnsClient.Protocol;
 using Employee_Management_System.ewision.sahan.model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,11 +20,87 @@ namespace Employee_Management_System.admin_dashboard_pages
         public EmployeeRegister()
         {
             InitializeComponent();
+            Init();
+        }
+
+
+        private void Init()
+        {
+            LoadTitles();
+            LoadDepartments();
+            LoadDesignations();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoadTitles()
+        {
+            string query = "SELECT * FROM `title` ORDER BY `title` ASC";
+            MySqlDataReader dataReader = MySQL.Execute(query);
+
+            titleComboBox.Items.Clear();
+            titleComboBox.Items.Add("Select");
+            //string[] titles = { "Select" };
+
+            while (dataReader.Read())
+            {
+                string title = dataReader.GetString("title");
+                //string title = dataReader["title"];
+                
+                //titles.Append(title);
+                titleComboBox.Items.Add(title);
+            }
+
+            //titleComboBox.Items.AddRange(titles);
+            //titleComboBox.SelectedIndex = 0;
+            titleComboBox.SelectedItem = "Select";
+        }
+
+        private void LoadDepartments()
+        {
+            string query = "SELECT * FROM `department` ORDER BY `department` ASC";
+            MySqlDataReader dataReader = MySQL.Execute(query);
+
+            departmentComboBox.Items.Clear();
+            departmentComboBox.Items.Add("Select");
+            //string[] departments = { "Select" };
+
+            while (dataReader.Read())
+            {
+                string department = dataReader.GetString("department");
+                //string department = dataReader["department"];
+                
+                //departments.Append(department);
+                departmentComboBox.Items.Add(department);
+            }
+
+            //departmentComboBox.Items.AddRange(departments);
+            departmentComboBox.SelectedItem = "Select";
+        }
+
+        private void LoadDesignations()
+        {
+            string query = "SELECT * FROM `designation` ORDER BY `designation` ASC";
+            MySqlDataReader dataReader = MySQL.Execute(query);
+
+            designationComboBox.Items.Clear();
+            designationComboBox.Items.Add("Select");
+            //string[] designations = { "Select" };
+
+            while (dataReader.Read())
+            {
+                string designation = dataReader.GetString("designation");
+                //string designation = dataReader["designation"];
+
+                //designations.Append(designation);
+                designationComboBox.Items.Add(designation);
+            }
+
+            //designationComboBox.Items.AddRange(designations);
+            designationComboBox.SelectedItem = "Select";
         }
 
         private void registerBtn_Click(object sender, EventArgs e)
@@ -38,7 +115,14 @@ namespace Employee_Management_System.admin_dashboard_pages
             string pass = passwordBox.Text;
             string cPass = cPaswordBox.Text;
 
-            if (fname.Trim().Equals(""))
+            string department = departmentComboBox.SelectedItem == null ? "1" : (string)departmentComboBox.SelectedItem;
+            string designation = designationComboBox.SelectedItem == null ? "4" : (string)designationComboBox.SelectedItem;
+
+            if (title.Equals("Select"))
+            {
+                MessageBox.Show("Please select Title of Employee!");
+            }
+            else if (fname.Trim().Equals(""))
             {
                 MessageBox.Show("Please enter First Name of Employee!");
             }
@@ -46,13 +130,13 @@ namespace Employee_Management_System.admin_dashboard_pages
             {
                 MessageBox.Show("Please enter Last Name of Employee!");
             }
-            else if (email.Trim().Equals(""))
-            {
-                MessageBox.Show("Please enter Email of Employee!");
-            }
             else if (mobile.Trim().Equals(""))
             {
                 MessageBox.Show("Please enter Mobile of Employee!");
+            }
+            else if (email.Trim().Equals(""))
+            {
+                MessageBox.Show("Please enter Email of Employee!");
             }
             else if (pass.Trim().Equals(""))
             {
@@ -66,36 +150,44 @@ namespace Employee_Management_System.admin_dashboard_pages
             {
                 MessageBox.Show("Passwords doesn't match!");
             }
-            else
-            {
-                string query = "INSERT INTO `user` (`fname`, `lname`, `email`, `mobile`, `password`, `user_type_id`, `title_id`, `status_id`) " +
-                "VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + mobile + "', '" + pass + "', '2', '1', '1')";
-                MySQL.Execute(query);
-
-                int uid = MySQL.LastInsertID();
-                RegisterPosition(uid);
-                RegisterAddress(uid);
-            }
-        }
-
-        private void RegisterPosition(int uid)
-        {
-            if (departmentComboBox.SelectedItem == null)
+            else if (department.Equals("Select"))
             {
                 MessageBox.Show("Please Select Department of Employee!");
             }
-            else if (designationComboBox.SelectedItem == null)
+            else if (designation.Equals("Select"))
             {
                 MessageBox.Show("Please Select Designation of Employee!");
             }
             else
             {
-                string department = departmentComboBox.SelectedItem == null ? "1" : (string)departmentComboBox.SelectedItem;
-                string designation = designationComboBox.SelectedItem == null ? "4" : (string)designationComboBox.SelectedItem;
+                try
+                {
+                    string query = "INSERT INTO `user` (`fname`, `lname`, `email`, `mobile`, `password`, `user_type_id`, `title_id`, `status_id`) " +
+                    "VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + mobile + "', '" + pass + "', '2', '1', '1')";
+                    //MySQL.Execute(query);
+                    int uid = MySQL.Insert(query);
 
-                string query = "UPDATE `user` SET `department_id`='1', `designation_id`='1' WHERE `uid`='" + uid + "'";
-                MySQL.Execute(query);
+                    RegisterPosition(uid);
+                    RegisterAddress(uid);
+
+                    MessageBox.Show("Employer Registered Successfully");
+                    Reset();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something Failed! " + ex.Message);
+                    Console.WriteLine(ex.Message);
+                }
             }
+        }
+
+        private void RegisterPosition(int uid)
+        {
+            string department = departmentComboBox.SelectedItem == null ? "1" : (string)departmentComboBox.SelectedItem;
+            string designation = designationComboBox.SelectedItem == null ? "4" : (string)designationComboBox.SelectedItem;
+            
+            string query = "UPDATE `user` SET `department_id`='1', `designation_id`='1' WHERE `uid`='" + uid + "'";
+            MySQL.Execute(query);
         }
 
         private void RegisterAddress(int uid)
@@ -126,6 +218,25 @@ namespace Employee_Management_System.admin_dashboard_pages
                 }
             }
 
+        }
+
+        private void Reset()
+        {
+            line1Box.Text = string.Empty;
+            line2Box.Text = string.Empty;
+            cityBox.Text = string.Empty;
+            pcodeBox.Text = string.Empty;
+
+            fnameBox.Text = string.Empty;
+            lnameBox.Text = string.Empty;
+            mobileBox.Text = string.Empty;
+            emailBox.Text = string.Empty;
+            passwordBox.Text = string.Empty;
+            cPaswordBox.Text = string.Empty;
+
+            titleComboBox.SelectedItem = "Select";
+            designationComboBox.SelectedItem = "Select";
+            departmentComboBox.SelectedItem = "Select";
         }
     }
 }

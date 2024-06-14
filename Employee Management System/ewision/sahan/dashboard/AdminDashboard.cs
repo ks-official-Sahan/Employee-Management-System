@@ -86,7 +86,7 @@ namespace Employee_Management_System
 
         private void Health_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new user_dashboard_pages.Health(), sender);
+            OpenChildForm(new Health(), sender);
         }
 
         private void Profile_Click(object sender, EventArgs e)
@@ -96,22 +96,27 @@ namespace Employee_Management_System
 
         private void Leave_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new user_dashboard_pages.Leave(), sender);
+            OpenChildForm(new Leave(), sender);
         }
 
         private void insuarance_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new user_dashboard_pages.Insuarance(), sender);
+            OpenChildForm(new Insuarance(), sender);
         }
 
         private void notification_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new user_dashboard_pages.Notifications(), sender);
+            OpenChildForm(new Notifications(), sender);
         }
 
         private void community_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new user_dashboard_pages.Community(), sender);
+            OpenChildForm(new Community(), sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new EmployeeRegister(), sender);
         }
     }
 }
