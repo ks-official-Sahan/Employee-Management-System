@@ -23,7 +23,7 @@ namespace Employee_Management_System.admin_dashboard_pages
         private void Init()
         {
             LoadEmployees("");
-            LoadSalaryData();
+            LoadSalaryData(false);
             hideLabels();
             dateLabel.Text = string.Format("{0:yyyy/MM/dd}", DateTime.Now);
         }
@@ -56,10 +56,10 @@ namespace Employee_Management_System.admin_dashboard_pages
                 }
             }
         }
-        private void LoadSalaryData()
+        private void LoadSalaryData(bool isSelected)
         {
             string query = "SELECT * FROM `salary` INNER JOIN `user` ON `salary`.`user_uid`=`user`.`uid` INNER JOIN `title` ON `user`.`title_id`=`title`.`id` INNER JOIN `status` ON `status`.`id` = `user`.`status_id` INNER JOIN `department` ON `department`.`id` = `user`.`department_id` INNER JOIN `designation` ON `designation`.`id` = `user`.`designation_id`";
-            if (employerIdBox.Visible)
+            if (isSelected)
             {
                 query += " WHERE `user_uid`='" + employerIdBox.Text + "'";
             }
@@ -67,10 +67,9 @@ namespace Employee_Management_System.admin_dashboard_pages
 
             MySqlDataReader resultSet = MySQL.Execute(query);
 
+            salaryTable.Rows.Clear();
             if (resultSet.HasRows)
             {
-                salaryTable.Rows.Clear();
-
                 while (resultSet.Read())
                 {
                     DataGridViewRow newRow = new DataGridViewRow();
@@ -98,16 +97,16 @@ namespace Employee_Management_System.admin_dashboard_pages
         }
         private void showLabels()
         {
-            employerIdBox.Visible = false;
-            employerNameBox.Visible = false;
-            employerPositionBox.Visible = false;
+            employerIdBox.Visible = true;
+            employerNameBox.Visible = true;
+            employerPositionBox.Visible = true;
         }
         private void reset()
         {
             employerIdBox.Text = "Employer ID";
             employerNameBox.Text = "Employer Name";
             employerPositionBox.Text = "Employer Position";
-            hideLabels();
+            //hideLabels();
             dateLabel.Text = string.Format("{0:yyyy/MM/dd}", DateTime.Now);
             searchBox.Text = string.Empty;
             LoadEmployees("");
@@ -133,25 +132,28 @@ namespace Employee_Management_System.admin_dashboard_pages
                 MySQL.Execute(query);
                 MySQL.Execute("INSERT INTO `notification` (`content`, `date_time`, `user_type_id`, `target_id`) VALUES ('Claim of " + employeeTable.Rows[e.RowIndex].Cells[3].Value.ToString() + " on " + employeeTable.Rows[e.RowIndex].Cells[1].Value.ToString() + " for " + employeeTable.Rows[e.RowIndex].Cells[2].Value.ToString() + " has been approved by Admin." + "', '" + string.Format("{0:yyyy/MM/dd HH:mm:ss}", DateTime.Now) + "', 1, 2)");
 
+                showLabels();
+                string name = employeeTable.Rows[e.RowIndex].Cells[3].Value.ToString();
+                string id = employeeTable.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string position = employeeTable.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+                employerNameBox.Text = name;
+                employerIdBox.Text = id;
+                employerPositionBox.Text = position;
+
+                LoadSalaryData(true);
+
                 string email = employeeTable.Rows[e.RowIndex].Cells[1].Value.ToString();
                 searchBox.Text = email;
-
-                showLabels();
-                employerNameBox.Text = employeeTable.Rows[e.RowIndex].Cells[3].Value.ToString();
-                employerIdBox.Text = employeeTable.Rows[e.RowIndex].Cells[0].Value.ToString();
-                employerPositionBox.Text = employeeTable.Rows[e.RowIndex].Cells[4].Value.ToString();
-
                 LoadEmployees(email);
-
-                LoadSalaryData();
             }
         }
 
         private void calculateSalary()
         {
-            string bpd = bpdBox.Text;
-            string count = countBox.Text;
-            string bonus = bonusBox.Text;
+            string bpd = bpdBox.Text.Equals("") ? "0" : bpdBox.Text.Trim();
+            string count = countBox.Text.Equals("") ? "0" : countBox.Text.Trim();
+            string bonus = bonusBox.Text.Equals("") ? "0" : bonusBox.Text.Trim();
 
             try
             {
@@ -166,12 +168,13 @@ namespace Employee_Management_System.admin_dashboard_pages
 
         private void generateSalary()
         {
-            string bpd = bpdBox.Text;
-            string count = countBox.Text;
-            string bonus = bonusBox.Text;
+            string bpd = bpdBox.Text.Equals("") ? "0" : bpdBox.Text.Trim();
+            string count = countBox.Text.Equals("") ? "0" : countBox.Text.Trim();
+            string bonus = bonusBox.Text.Equals("") ? "0" : bonusBox.Text.Trim();
+
             string date = string.Format("{0:yyyy/MM/dd}", DateTime.Now);
 
-            string query = "INSERT INTO `salary` (`basic`, `day_count`, `user_uid`, `bonus`, `salary_date`) VALUES ('"+bpd+"', '"+count+"', '"+employerIdBox.Text+"', '"+bonus+"', '"+date+"')";
+            string query = "INSERT INTO `salary` (`basic`, `day_count`, `user_uid`, `bonus`, `salary_date`) VALUES ('" + bpd + "', '" + count + "', '" + employerIdBox.Text + "', '" + bonus + "', '" + date + "')";
             MySQL.Execute(query);
         }
 
@@ -209,6 +212,11 @@ namespace Employee_Management_System.admin_dashboard_pages
         private void bonusBox_TextChanged(object sender, EventArgs e)
         {
             calculateSalary();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            generateSalary();
         }
     }
 }
