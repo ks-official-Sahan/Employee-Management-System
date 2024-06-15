@@ -7,20 +7,20 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <StartupObject>Employee_Management_System.ewision.sahan.main.Program</StartupObject>
+    <StartupObject>Employee_Management_System.ewision.developer.main.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="ewision\sahan\admin\CommunityA.cs">
+    <Compile Update="ewision\developer\admin\CommunityA.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ewision\sahan\admin\Salary.cs">
+    <Compile Update="ewision\developer\admin\Salary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ewision\sahan\admin\Employers.cs">
+    <Compile Update="ewision\developer\admin\Employers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ewision\sahan\dashboard\AdminDashboard.cs">
+    <Compile Update="ewision\developer\dashboard\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
