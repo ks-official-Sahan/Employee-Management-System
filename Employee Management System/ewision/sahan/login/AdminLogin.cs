@@ -20,10 +20,10 @@ namespace Employee_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ewision.sahan.model.User user = new ewision.sahan.model.User("5", "Sahan", "Sahan", "Sahan@gmail.com", "0761234567", "2004/06/11");
-            openAdminDashboard(user);
+            //ewision.sahan.model.User user = new ewision.sahan.model.User("5", "Sahan", "Sahan", "Sahan@gmail.com", "0761234567", "2004/06/11");
+            //openAdminDashboard(user);
 
-            //signIn();
+            signIn();
         }
 
         private void openAdminDashboard(ewision.sahan.model.User user)

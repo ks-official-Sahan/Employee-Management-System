@@ -106,10 +106,14 @@ namespace Employee_Management_System.admin_dashboard_pages
             employerIdBox.Text = "Employer ID";
             employerNameBox.Text = "Employer Name";
             employerPositionBox.Text = "Employer Position";
-            //hideLabels();
+            hideLabels();
+
+            bpdBox.Text = countBox.Text = bonusBox.Text = salaryLabel.Text = "0";
+
             dateLabel.Text = string.Format("{0:yyyy/MM/dd}", DateTime.Now);
             searchBox.Text = string.Empty;
             LoadEmployees("");
+            LoadSalaryData(false);
         }
 
 
@@ -217,6 +221,8 @@ namespace Employee_Management_System.admin_dashboard_pages
         private void button2_Click(object sender, EventArgs e)
         {
             generateSalary();
+            bpdBox.Text = countBox.Text = bonusBox.Text = salaryLabel.Text = "0";
+            LoadSalaryData(true);
         }
     }
 }
