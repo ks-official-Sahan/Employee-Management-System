@@ -32,12 +32,13 @@
             button1 = new Button();
             panel1 = new Panel();
             dvg = new DataGridView();
-            reasonBox = new TextBox();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
+            reasonBox = new TextBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvg).BeginInit();
             SuspendLayout();
@@ -67,9 +68,9 @@
             // 
             panel1.BackColor = Color.LightGray;
             panel1.Controls.Add(dvg);
-            panel1.Location = new Point(25, 25);
+            panel1.Location = new Point(25, 114);
             panel1.Name = "panel1";
-            panel1.Size = new Size(920, 683);
+            panel1.Size = new Size(920, 594);
             panel1.TabIndex = 27;
             // 
             // dvg
@@ -81,20 +82,12 @@
             dvg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvg.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dvg.GridColor = SystemColors.Window;
-            dvg.Location = new Point(6, 6);
+            dvg.Location = new Point(0, 0);
             dvg.Name = "dvg";
             dvg.ReadOnly = true;
             dvg.RowHeadersWidth = 45;
-            dvg.Size = new Size(908, 671);
+            dvg.Size = new Size(920, 594);
             dvg.TabIndex = 30;
-            // 
-            // reasonBox
-            // 
-            reasonBox.Location = new Point(262, 733);
-            reasonBox.Multiline = true;
-            reasonBox.Name = "reasonBox";
-            reasonBox.Size = new Size(493, 49);
-            reasonBox.TabIndex = 28;
             // 
             // Column1
             // 
@@ -134,12 +127,31 @@
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
             // 
+            // reasonBox
+            // 
+            reasonBox.Location = new Point(262, 733);
+            reasonBox.Multiline = true;
+            reasonBox.Name = "reasonBox";
+            reasonBox.Size = new Size(493, 49);
+            reasonBox.TabIndex = 28;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Sans Serif Collection", 18.3396225F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(25, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(175, 67);
+            label1.TabIndex = 29;
+            label1.Text = "Claims";
+            // 
             // Insuarance
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(970, 822);
+            Controls.Add(label1);
             Controls.Add(reasonBox);
             Controls.Add(panel1);
             Controls.Add(button1);
@@ -165,5 +177,6 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
+        private Label label1;
     }
 }

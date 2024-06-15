@@ -1,4 +1,5 @@
 ﻿using Employee_Management_System.ewision.sahan.model;
+using Microsoft.VisualBasic.ApplicationServices;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Employee_Management_System.admin_dashboard_pages
         public static void DisplayClaimsData(DataGridView claimsTable)
         {
 
-            string query = "SELECT * FROM `claim` INNER JOIN `user` ON `user`.`uid`=`leaves`.`user_uid` INNER JOIN `status` ON `status`.`id` = `leaves`.`status_id`";
+            string query = "SELECT * FROM `claim` INNER JOIN `user` ON `user`.`uid`=`claim`.`user_uid` INNER JOIN `status` ON `status`.`id` = `claim`.`status_id`";
 
             MySqlDataReader resultSet = MySQL.Execute(query);
 
@@ -70,12 +71,16 @@ namespace Employee_Management_System.admin_dashboard_pages
                 //accept
                 string query = "UPDATE `claim` SET `status_id`='1' WHERE `id`='" + claimsTable.Rows[e.RowIndex].Cells[0].Value.ToString() + "'";
                 MySQL.Execute(query);
+
+                MySQL.Execute("INSERT INTO `notification` (`content`, `date_time`, `user_type_id`, `target_id`) VALUES ('Claim of "+ claimsTable.Rows[e.RowIndex].Cells[3].Value.ToString() + " on "+ claimsTable.Rows[e.RowIndex].Cells[1].Value.ToString() + " for " + claimsTable.Rows[e.RowIndex].Cells[2].Value.ToString() + " has been approved by Admin." + "', '" + string.Format("{0:yyyy/MM/dd HH:mm:ss}", DateTime.Now) + "', 2, 3)");
             }
             if (e.ColumnIndex == 6)
             {
                 //decline
                 string query = "UPDATE `claim` SET `status_id`='2' WHERE `id`='" + claimsTable.Rows[e.RowIndex].Cells[0].Value.ToString() + "'";
                 MySQL.Execute(query);
+
+                MySQL.Execute("INSERT INTO `notification` (`content`, `date_time`, `user_type_id`, `target_id`) VALUES ('Claim of " + claimsTable.Rows[e.RowIndex].Cells[3].Value.ToString() + " on " + claimsTable.Rows[e.RowIndex].Cells[1].Value.ToString() + " for " + claimsTable.Rows[e.RowIndex].Cells[2].Value.ToString() + " has been declined by Admin." + "', '" + string.Format("{0:yyyy/MM/dd HH:mm:ss}", DateTime.Now) + "', 2, 3)");
             }
             DisplayClaimsData(claimsTable);
         }

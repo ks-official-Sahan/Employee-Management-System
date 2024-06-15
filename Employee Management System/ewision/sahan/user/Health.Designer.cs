@@ -36,6 +36,7 @@
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dvg).BeginInit();
             SuspendLayout();
             // 
@@ -78,11 +79,11 @@
             dvg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvg.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
             dvg.GridColor = SystemColors.Window;
-            dvg.Location = new Point(34, 36);
+            dvg.Location = new Point(34, 97);
             dvg.Name = "dvg";
             dvg.ReadOnly = true;
             dvg.RowHeadersWidth = 45;
-            dvg.Size = new Size(908, 671);
+            dvg.Size = new Size(908, 636);
             dvg.TabIndex = 29;
             // 
             // Column1
@@ -116,12 +117,23 @@
             Column4.ReadOnly = true;
             Column4.Resizable = DataGridViewTriState.False;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Sans Serif Collection", 18.3396225F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(34, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(167, 67);
+            label1.TabIndex = 30;
+            label1.Text = "Status";
+            // 
             // Health
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(967, 821);
+            Controls.Add(label1);
             Controls.Add(dvg);
             Controls.Add(reasonBox);
             Controls.Add(dateTimePicker1);
@@ -142,5 +154,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private Label label1;
     }
 }

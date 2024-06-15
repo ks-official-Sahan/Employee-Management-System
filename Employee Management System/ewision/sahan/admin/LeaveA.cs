@@ -23,7 +23,7 @@ namespace Employee_Management_System.admin_dashboard_pages
         public static void DisplayLeaveData(DataGridView leaaveTable)
         {
 
-            string query = "SELECT * FROM `leaves` INNER JOIN `user` ON `user`.`uid`=`leaves`.`user_uid` INNER JOIN `status` ON `status`.`id` = `leaves`.`status_id`";
+            string query = "SELECT * FROM `leaves` INNER JOIN `user` ON `user`.`uid`=`leaves`.`user_uid` INNER JOIN `status` ON `status`.`id` = `leaves`.`status_id` ORDER BY `applied_on` DESC";
 
             MySqlDataReader resultSet = MySQL.Execute(query);
 
@@ -69,12 +69,14 @@ namespace Employee_Management_System.admin_dashboard_pages
                 //accept
                 string query = "UPDATE `leaves` SET `status_id`='1' WHERE `id`='" + leaaveTable.Rows[e.RowIndex].Cells[0].Value.ToString() + "'";
                 MySQL.Execute(query);
+                MySQL.Execute("INSERT INTO `notification` (`content`, `date_time`, `user_type_id`, `target_id`) VALUES ('Claim of " + leaaveTable.Rows[e.RowIndex].Cells[3].Value.ToString() + " on " + leaaveTable.Rows[e.RowIndex].Cells[1].Value.ToString() + " for " + leaaveTable.Rows[e.RowIndex].Cells[2].Value.ToString() + " has been approved by Admin." + "', '" + string.Format("{0:yyyy/MM/dd HH:mm:ss}", DateTime.Now) + "', 2, 2)");
             }
             if (e.ColumnIndex == 6)
             {
                 //decline
                 string query = "UPDATE `leaves` SET `status_id`='2' WHERE `id`='" + leaaveTable.Rows[e.RowIndex].Cells[0].Value.ToString() + "'";
                 MySQL.Execute(query);
+                MySQL.Execute("INSERT INTO `notification` (`content`, `date_time`, `user_type_id`, `target_id`) VALUES ('Claim of " + leaaveTable.Rows[e.RowIndex].Cells[3].Value.ToString() + " on " + leaaveTable.Rows[e.RowIndex].Cells[1].Value.ToString() + " for " + leaaveTable.Rows[e.RowIndex].Cells[2].Value.ToString() + " has been declined by Admin." + "', '" + string.Format("{0:yyyy/MM/dd HH:mm:ss}", DateTime.Now) + "', 2, 2)");
             }
             DisplayLeaveData(leaaveTable);
         }

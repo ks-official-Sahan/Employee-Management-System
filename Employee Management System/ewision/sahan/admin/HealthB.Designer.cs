@@ -37,6 +37,7 @@
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -63,11 +64,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dataGridView1.GridColor = SystemColors.Window;
-            dataGridView1.Location = new Point(34, 49);
+            dataGridView1.Location = new Point(34, 115);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 45;
-            dataGridView1.Size = new Size(894, 671);
+            dataGridView1.Size = new Size(894, 605);
             dataGridView1.TabIndex = 27;
             // 
             // Column1
@@ -108,18 +109,30 @@
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Sans Serif Collection", 18.3396225F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(34, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(315, 67);
+            label1.TabIndex = 29;
+            label1.Text = "Health Status";
+            // 
             // HealthB
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(950, 821);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Name = "HealthB";
             Text = "Health";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -130,5 +143,6 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
+        private Label label1;
     }
 }

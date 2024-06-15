@@ -31,13 +31,14 @@
             dateTimePicker1 = new DateTimePicker();
             button1 = new Button();
             panel1 = new Panel();
-            reasonBox = new TextBox();
             dvg = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
+            reasonBox = new TextBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvg).BeginInit();
             SuspendLayout();
@@ -67,18 +68,10 @@
             // 
             panel1.BackColor = Color.LightGray;
             panel1.Controls.Add(dvg);
-            panel1.Location = new Point(34, 29);
+            panel1.Location = new Point(34, 91);
             panel1.Name = "panel1";
-            panel1.Size = new Size(902, 668);
+            panel1.Size = new Size(902, 606);
             panel1.TabIndex = 26;
-            // 
-            // reasonBox
-            // 
-            reasonBox.Location = new Point(264, 722);
-            reasonBox.Multiline = true;
-            reasonBox.Name = "reasonBox";
-            reasonBox.Size = new Size(490, 49);
-            reasonBox.TabIndex = 27;
             // 
             // dvg
             // 
@@ -89,11 +82,11 @@
             dvg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvg.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dvg.GridColor = SystemColors.Window;
-            dvg.Location = new Point(0, -1);
+            dvg.Location = new Point(0, 0);
             dvg.Name = "dvg";
             dvg.ReadOnly = true;
             dvg.RowHeadersWidth = 45;
-            dvg.Size = new Size(902, 669);
+            dvg.Size = new Size(902, 606);
             dvg.TabIndex = 31;
             // 
             // Column1
@@ -134,12 +127,31 @@
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
             // 
+            // reasonBox
+            // 
+            reasonBox.Location = new Point(264, 722);
+            reasonBox.Multiline = true;
+            reasonBox.Name = "reasonBox";
+            reasonBox.Size = new Size(490, 49);
+            reasonBox.TabIndex = 27;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Sans Serif Collection", 18.3396225F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(34, 21);
+            label1.Name = "label1";
+            label1.Size = new Size(185, 67);
+            label1.TabIndex = 32;
+            label1.Text = "Leaves";
+            // 
             // Leave
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(971, 822);
+            Controls.Add(label1);
             Controls.Add(reasonBox);
             Controls.Add(panel1);
             Controls.Add(button1);
@@ -165,5 +177,6 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
+        private Label label1;
     }
 }

@@ -118,5 +118,15 @@ namespace Employee_Management_System
         {
             OpenChildForm(new EmployeeRegister(), sender);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Employers(), sender);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Salary(), sender);
+        }
     }
 }

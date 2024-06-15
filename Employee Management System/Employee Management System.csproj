@@ -14,6 +14,12 @@
     <Compile Update="ewision\sahan\admin\CommunityA.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ewision\sahan\admin\Salary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ewision\sahan\admin\Employers.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ewision\sahan\dashboard\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>

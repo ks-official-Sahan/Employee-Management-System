@@ -34,6 +34,7 @@
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             button1 = new Button();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvg).BeginInit();
             SuspendLayout();
@@ -42,9 +43,9 @@
             // 
             panel1.BackColor = Color.LightGray;
             panel1.Controls.Add(dvg);
-            panel1.Location = new Point(26, 31);
+            panel1.Location = new Point(26, 107);
             panel1.Name = "panel1";
-            panel1.Size = new Size(920, 683);
+            panel1.Size = new Size(920, 607);
             panel1.TabIndex = 0;
             // 
             // dvg
@@ -60,12 +61,13 @@
             dvg.Name = "dvg";
             dvg.ReadOnly = true;
             dvg.RowHeadersWidth = 45;
-            dvg.Size = new Size(920, 683);
+            dvg.Size = new Size(920, 607);
             dvg.TabIndex = 28;
+            dvg.CellContentClick += dvg_CellContentClick;
             // 
             // Column2
             // 
-            Column2.FillWeight = 45F;
+            Column2.FillWeight = 20F;
             Column2.HeaderText = "Subject";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
@@ -83,7 +85,7 @@
             // 
             // Column4
             // 
-            Column4.FillWeight = 60F;
+            Column4.FillWeight = 30F;
             Column4.HeaderText = "Time";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
@@ -103,12 +105,23 @@
             button1.Text = "Refresh";
             button1.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Sans Serif Collection", 18.3396225F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(26, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(294, 67);
+            label1.TabIndex = 28;
+            label1.Text = "Notifications";
+            // 
             // Notifications
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(971, 822);
+            Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(panel1);
             Name = "Notifications";
@@ -117,6 +130,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dvg).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -127,5 +141,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private Label label1;
     }
 }

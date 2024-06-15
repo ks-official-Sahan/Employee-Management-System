@@ -170,16 +170,25 @@ namespace Employee_Management_System.admin_dashboard_pages
             {
                 try
                 {
-                    string query = "INSERT INTO `user` (`fname`, `lname`, `email`, `mobile`, `password`, `user_type_id`, `title_id`, `status_id`) " +
-                    "VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + mobile + "', '" + pass + "', '2', '" + titleMap[title] +"', '1')";
-                    //MySQL.Execute(query);
-                    int uid = MySQL.Insert(query);
+                    MySqlDataReader dataReader = MySQL.Execute("SELECT * FROM `user` WHERE `email`='" + email + "' OR `mobile`='"+mobile+"'");
+                    if (dataReader.Read())
+                    {
+                        MessageBox.Show("Employee email or mobile already exists!");
+                    }
+                    else
+                    {
 
-                    RegisterPosition(uid);
-                    RegisterAddress(uid);
+                        string query = "INSERT INTO `user` (`fname`, `lname`, `email`, `mobile`, `password`, `user_type_id`, `title_id`, `status_id`) " +
+                        "VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + mobile + "', '" + pass + "', '2', '" + titleMap[title] + "', '1')";
+                        //MySQL.Execute(query);
+                        int uid = MySQL.Insert(query);
 
-                    MessageBox.Show("Employer Registered Successfully");
-                    Reset();
+                        RegisterPosition(uid);
+                        RegisterAddress(uid);
+
+                        MessageBox.Show("Employer Registered Successfully");
+                        Reset();
+                    }
                 }
                 catch (Exception ex)
                 {

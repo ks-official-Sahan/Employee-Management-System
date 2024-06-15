@@ -38,8 +38,10 @@
             insuarance = new Button();
             notification = new Button();
             community = new Button();
-            panelDesktopPane = new Panel();
             button1 = new Button();
+            button2 = new Button();
+            panelDesktopPane = new Panel();
+            button3 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelMenu.SuspendLayout();
@@ -86,6 +88,8 @@
             panelMenu.Controls.Add(notification);
             panelMenu.Controls.Add(community);
             panelMenu.Controls.Add(button1);
+            panelMenu.Controls.Add(button2);
+            panelMenu.Controls.Add(button3);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 40);
             panelMenu.Name = "panelMenu";
@@ -103,7 +107,7 @@
             Health.ImageAlign = ContentAlignment.MiddleLeft;
             Health.Location = new Point(3, 3);
             Health.Name = "Health";
-            Health.Size = new Size(234, 83);
+            Health.Size = new Size(234, 73);
             Health.TabIndex = 3;
             Health.Text = "Health Status";
             Health.UseVisualStyleBackColor = false;
@@ -118,9 +122,9 @@
             Profile.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Profile.ForeColor = Color.White;
             Profile.ImageAlign = ContentAlignment.MiddleLeft;
-            Profile.Location = new Point(3, 92);
+            Profile.Location = new Point(3, 82);
             Profile.Name = "Profile";
-            Profile.Size = new Size(234, 88);
+            Profile.Size = new Size(234, 75);
             Profile.TabIndex = 2;
             Profile.Text = "My Profile";
             Profile.UseVisualStyleBackColor = false;
@@ -135,11 +139,11 @@
             Leave.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Leave.ForeColor = Color.White;
             Leave.ImageAlign = ContentAlignment.MiddleLeft;
-            Leave.Location = new Point(3, 186);
+            Leave.Location = new Point(3, 163);
             Leave.Name = "Leave";
-            Leave.Size = new Size(234, 88);
+            Leave.Size = new Size(234, 79);
             Leave.TabIndex = 4;
-            Leave.Text = "   Submit a Leave";
+            Leave.Text = "Manage Leaves";
             Leave.UseVisualStyleBackColor = false;
             Leave.Click += Leave_Click;
             // 
@@ -152,11 +156,11 @@
             insuarance.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             insuarance.ForeColor = Color.White;
             insuarance.ImageAlign = ContentAlignment.MiddleLeft;
-            insuarance.Location = new Point(3, 280);
+            insuarance.Location = new Point(3, 248);
             insuarance.Name = "insuarance";
-            insuarance.Size = new Size(234, 88);
+            insuarance.Size = new Size(234, 76);
             insuarance.TabIndex = 5;
-            insuarance.Text = "     Insuarance Claim";
+            insuarance.Text = "Manage Claims";
             insuarance.UseVisualStyleBackColor = false;
             insuarance.Click += insuarance_Click;
             // 
@@ -169,9 +173,9 @@
             notification.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             notification.ForeColor = Color.White;
             notification.ImageAlign = ContentAlignment.MiddleLeft;
-            notification.Location = new Point(3, 374);
+            notification.Location = new Point(3, 330);
             notification.Name = "notification";
-            notification.Size = new Size(234, 88);
+            notification.Size = new Size(234, 75);
             notification.TabIndex = 6;
             notification.Text = "Notifications";
             notification.UseVisualStyleBackColor = false;
@@ -186,22 +190,13 @@
             community.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             community.ForeColor = Color.White;
             community.ImageAlign = ContentAlignment.MiddleLeft;
-            community.Location = new Point(3, 468);
+            community.Location = new Point(3, 411);
             community.Name = "community";
-            community.Size = new Size(234, 88);
+            community.Size = new Size(234, 80);
             community.TabIndex = 7;
-            community.Text = "     Community Forum";
+            community.Text = "Community Forum";
             community.UseVisualStyleBackColor = false;
             community.Click += community_Click;
-            // 
-            // panelDesktopPane
-            // 
-            panelDesktopPane.BackColor = Color.LightGray;
-            panelDesktopPane.Dock = DockStyle.Fill;
-            panelDesktopPane.Location = new Point(234, 40);
-            panelDesktopPane.Name = "panelDesktopPane";
-            panelDesktopPane.Size = new Size(950, 822);
-            panelDesktopPane.TabIndex = 3;
             // 
             // button1
             // 
@@ -212,13 +207,56 @@
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(3, 562);
+            button1.Location = new Point(3, 497);
             button1.Name = "button1";
-            button1.Size = new Size(234, 88);
+            button1.Size = new Size(234, 76);
             button1.TabIndex = 8;
-            button1.Text = " Employee Registration";
+            button1.Text = "Employee Registration";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(0, 128, 255);
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(3, 579);
+            button2.Name = "button2";
+            button2.Size = new Size(234, 72);
+            button2.TabIndex = 9;
+            button2.Text = "Manage Employees";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // panelDesktopPane
+            // 
+            panelDesktopPane.BackColor = Color.LightGray;
+            panelDesktopPane.Dock = DockStyle.Fill;
+            panelDesktopPane.Location = new Point(234, 40);
+            panelDesktopPane.Name = "panelDesktopPane";
+            panelDesktopPane.Size = new Size(950, 822);
+            panelDesktopPane.TabIndex = 3;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(0, 128, 255);
+            button3.Cursor = Cursors.Hand;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(3, 657);
+            button3.Name = "button3";
+            button3.Size = new Size(234, 75);
+            button3.TabIndex = 10;
+            button3.Text = "Employee Salary";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // AdminDashboard
             // 
@@ -255,5 +293,7 @@
         private Button community;
         private Panel panelDesktopPane;
         private Button button1;
+        private Button button2;
+        private Button button3;
     }
 }
