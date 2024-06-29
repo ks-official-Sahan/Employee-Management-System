@@ -39,15 +39,17 @@
             Column5 = new DataGridViewTextBoxColumn();
             reasonBox = new TextBox();
             label1 = new Label();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvg).BeginInit();
             SuspendLayout();
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(34, 733);
+            dateTimePicker1.Location = new Point(39, 862);
+            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(208, 25);
+            dateTimePicker1.Size = new Size(237, 27);
             dateTimePicker1.TabIndex = 0;
             // 
             // button1
@@ -56,9 +58,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(774, 722);
+            button1.Location = new Point(885, 849);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(150, 49);
+            button1.Size = new Size(171, 58);
             button1.TabIndex = 25;
             button1.Text = "Submit";
             button1.UseVisualStyleBackColor = false;
@@ -68,9 +71,10 @@
             // 
             panel1.BackColor = Color.LightGray;
             panel1.Controls.Add(dvg);
-            panel1.Location = new Point(34, 91);
+            panel1.Location = new Point(39, 107);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(902, 606);
+            panel1.Size = new Size(1031, 713);
             panel1.TabIndex = 26;
             // 
             // dvg
@@ -83,10 +87,11 @@
             dvg.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dvg.GridColor = SystemColors.Window;
             dvg.Location = new Point(0, 0);
+            dvg.Margin = new Padding(3, 4, 3, 4);
             dvg.Name = "dvg";
             dvg.ReadOnly = true;
             dvg.RowHeadersWidth = 45;
-            dvg.Size = new Size(902, 606);
+            dvg.Size = new Size(1031, 713);
             dvg.TabIndex = 31;
             // 
             // Column1
@@ -129,33 +134,46 @@
             // 
             // reasonBox
             // 
-            reasonBox.Location = new Point(264, 722);
+            reasonBox.Location = new Point(302, 849);
+            reasonBox.Margin = new Padding(3, 4, 3, 4);
             reasonBox.Multiline = true;
             reasonBox.Name = "reasonBox";
-            reasonBox.Size = new Size(490, 49);
+            reasonBox.Size = new Size(559, 57);
             reasonBox.TabIndex = 27;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Sans Serif Collection", 18.3396225F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(34, 21);
+            label1.Location = new Point(39, 25);
             label1.Name = "label1";
-            label1.Size = new Size(185, 67);
+            label1.Size = new Size(212, 76);
             label1.TabIndex = 32;
             label1.Text = "Leaves";
             // 
+            // button2
+            // 
+            button2.Location = new Point(976, 48);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 43);
+            button2.TabIndex = 33;
+            button2.Text = "Refresh";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Leave
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(971, 822);
+            ClientSize = new Size(1110, 967);
+            Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(reasonBox);
             Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(dateTimePicker1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Leave";
             Text = "Leave";
             Load += Leave_Load;
@@ -178,5 +196,6 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private Label label1;
+        private Button button2;
     }
 }

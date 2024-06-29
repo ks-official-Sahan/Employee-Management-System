@@ -1,4 +1,6 @@
-﻿using Employee_Management_System.ewision.developer.model;
+﻿
+
+using Employee_Management_System.ewision.developer.model;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -61,7 +63,7 @@ namespace Employee_Management_System.admin_dashboard_pages
             string query = "SELECT * FROM `salary` INNER JOIN `user` ON `salary`.`user_uid`=`user`.`uid` INNER JOIN `title` ON `user`.`title_id`=`title`.`id` INNER JOIN `status` ON `status`.`id` = `user`.`status_id` INNER JOIN `department` ON `department`.`id` = `user`.`department_id` INNER JOIN `designation` ON `designation`.`id` = `user`.`designation_id` WHERE `status_id`='1'";
             if (isSelected)
             {
-                query += " WHERE `user_uid`='" + employerIdBox.Text + "'";
+                query += " AND `user_uid`='" + employerIdBox.Text + "'";
             }
             query += " ORDER BY `salary_date` DESC";
 

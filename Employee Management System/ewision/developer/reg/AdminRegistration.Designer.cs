@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            name = new TextBox();
-            position = new ComboBox();
-            label2 = new Label();
-            last = new TextBox();
-            first = new TextBox();
+            accessCodeBox = new TextBox();
+            lnameBox = new TextBox();
+            fnameBox = new TextBox();
             label3 = new Label();
-            Title = new ComboBox();
+            titleComboBox = new ComboBox();
             label1 = new Label();
             panel2 = new Panel();
             Register = new Button();
-            confirm = new TextBox();
-            password = new TextBox();
-            email = new TextBox();
-            phone = new TextBox();
+            cPasswordBox = new TextBox();
+            passwordBox = new TextBox();
+            emailBox = new TextBox();
+            mobileBox = new TextBox();
             label4 = new Label();
+            label2 = new Label();
+            linkLabel1 = new LinkLabel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -51,114 +51,92 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 239, 220);
-            panel1.Controls.Add(name);
-            panel1.Controls.Add(position);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(last);
-            panel1.Controls.Add(first);
+            panel1.Controls.Add(accessCodeBox);
+            panel1.Controls.Add(lnameBox);
+            panel1.Controls.Add(fnameBox);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(Title);
+            panel1.Controls.Add(titleComboBox);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(112, 111);
+            panel1.Location = new Point(128, 131);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(498, 570);
+            panel1.Size = new Size(569, 671);
             panel1.TabIndex = 0;
             // 
-            // name
+            // accessCodeBox
             // 
-            name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            name.BackColor = Color.White;
-            name.BorderStyle = BorderStyle.None;
-            name.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            name.ForeColor = Color.DimGray;
-            name.Location = new Point(44, 329);
-            name.MaximumSize = new Size(383, 28);
-            name.MinimumSize = new Size(153, 28);
-            name.Name = "name";
-            name.Size = new Size(376, 20);
-            name.TabIndex = 11;
-            name.Text = " Name With Initials";
+            accessCodeBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            accessCodeBox.BackColor = Color.White;
+            accessCodeBox.BorderStyle = BorderStyle.None;
+            accessCodeBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            accessCodeBox.ForeColor = Color.DimGray;
+            accessCodeBox.Location = new Point(50, 378);
+            accessCodeBox.Margin = new Padding(3, 4, 3, 4);
+            accessCodeBox.MaximumSize = new Size(438, 28);
+            accessCodeBox.MinimumSize = new Size(175, 28);
+            accessCodeBox.Name = "accessCodeBox";
+            accessCodeBox.PlaceholderText = "Access Code";
+            accessCodeBox.Size = new Size(433, 28);
+            accessCodeBox.TabIndex = 9;
             // 
-            // position
+            // lnameBox
             // 
-            position.AutoCompleteCustomSource.AddRange(new string[] { "Director", "Manager" });
-            position.BackColor = Color.White;
-            position.ForeColor = Color.Black;
-            position.FormattingEnabled = true;
-            position.Items.AddRange(new object[] { "Select", "Director", "Manager" });
-            position.Location = new Point(44, 274);
-            position.MaximumSize = new Size(359, 0);
-            position.MinimumSize = new Size(379, 0);
-            position.Name = "position";
-            position.Size = new Size(379, 25);
-            position.TabIndex = 10;
+            lnameBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lnameBox.BackColor = Color.White;
+            lnameBox.BorderStyle = BorderStyle.None;
+            lnameBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lnameBox.ForeColor = Color.DimGray;
+            lnameBox.Location = new Point(50, 307);
+            lnameBox.Margin = new Padding(3, 4, 3, 4);
+            lnameBox.MaximumSize = new Size(438, 28);
+            lnameBox.MinimumSize = new Size(175, 28);
+            lnameBox.Name = "lnameBox";
+            lnameBox.PlaceholderText = " Last Name";
+            lnameBox.Size = new Size(433, 28);
+            lnameBox.TabIndex = 8;
             // 
-            // label2
+            // fnameBox
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(44, 248);
-            label2.Name = "label2";
-            label2.Size = new Size(79, 23);
-            label2.TabIndex = 9;
-            label2.Text = "Position :";
-            // 
-            // last
-            // 
-            last.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            last.BackColor = Color.White;
-            last.BorderStyle = BorderStyle.None;
-            last.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            last.ForeColor = Color.DimGray;
-            last.Location = new Point(238, 192);
-            last.MaximumSize = new Size(383, 28);
-            last.MinimumSize = new Size(153, 28);
-            last.Name = "last";
-            last.Size = new Size(182, 20);
-            last.TabIndex = 8;
-            last.Text = " Last Name";
-            // 
-            // first
-            // 
-            first.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            first.BackColor = Color.White;
-            first.BorderStyle = BorderStyle.None;
-            first.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            first.ForeColor = Color.DimGray;
-            first.Location = new Point(44, 192);
-            first.MaximumSize = new Size(383, 28);
-            first.MinimumSize = new Size(153, 28);
-            first.Name = "first";
-            first.Size = new Size(182, 20);
-            first.TabIndex = 7;
-            first.Text = " First Name";
-            first.TextChanged += textBox1_TextChanged;
+            fnameBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            fnameBox.BackColor = Color.White;
+            fnameBox.BorderStyle = BorderStyle.None;
+            fnameBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            fnameBox.ForeColor = Color.DimGray;
+            fnameBox.Location = new Point(50, 235);
+            fnameBox.Margin = new Padding(3, 4, 3, 4);
+            fnameBox.MaximumSize = new Size(438, 28);
+            fnameBox.MinimumSize = new Size(175, 28);
+            fnameBox.Name = "fnameBox";
+            fnameBox.PlaceholderText = "First Name";
+            fnameBox.Size = new Size(433, 28);
+            fnameBox.TabIndex = 7;
+            fnameBox.TextChanged += textBox1_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(44, 104);
+            label3.Location = new Point(50, 122);
             label3.Name = "label3";
-            label3.Size = new Size(51, 23);
+            label3.Size = new Size(59, 25);
             label3.TabIndex = 6;
             label3.Text = "Title :";
             // 
-            // Title
+            // titleComboBox
             // 
-            Title.BackColor = Color.White;
-            Title.ForeColor = Color.Black;
-            Title.FormattingEnabled = true;
-            Title.Items.AddRange(new object[] { "Select", "Mr", "Mrs", "Miss" });
-            Title.Location = new Point(44, 135);
-            Title.MaximumSize = new Size(359, 0);
-            Title.MinimumSize = new Size(379, 0);
-            Title.Name = "Title";
-            Title.Size = new Size(379, 25);
-            Title.TabIndex = 2;
-            Title.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            titleComboBox.BackColor = Color.White;
+            titleComboBox.ForeColor = Color.Black;
+            titleComboBox.FormattingEnabled = true;
+            titleComboBox.Items.AddRange(new object[] { "Select", "Mr", "Mrs", "Miss" });
+            titleComboBox.Location = new Point(50, 159);
+            titleComboBox.Margin = new Padding(3, 4, 3, 4);
+            titleComboBox.MaximumSize = new Size(410, 0);
+            titleComboBox.MinimumSize = new Size(433, 0);
+            titleComboBox.Name = "titleComboBox";
+            titleComboBox.Size = new Size(433, 28);
+            titleComboBox.TabIndex = 2;
+            titleComboBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -166,9 +144,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(0, 128, 255);
-            label1.Location = new Point(33, 41);
+            label1.Location = new Point(38, 48);
             label1.Name = "label1";
-            label1.Size = new Size(327, 32);
+            label1.Size = new Size(369, 37);
             label1.TabIndex = 1;
             label1.Text = "Admin's General Information";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -176,15 +154,18 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(0, 128, 255);
+            panel2.Controls.Add(linkLabel1);
+            panel2.Controls.Add(label2);
             panel2.Controls.Add(Register);
-            panel2.Controls.Add(confirm);
-            panel2.Controls.Add(password);
-            panel2.Controls.Add(email);
-            panel2.Controls.Add(phone);
+            panel2.Controls.Add(cPasswordBox);
+            panel2.Controls.Add(passwordBox);
+            panel2.Controls.Add(emailBox);
+            panel2.Controls.Add(mobileBox);
             panel2.Controls.Add(label4);
-            panel2.Location = new Point(608, 111);
+            panel2.Location = new Point(695, 131);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(498, 570);
+            panel2.Size = new Size(569, 671);
             panel2.TabIndex = 1;
             // 
             // Register
@@ -194,73 +175,80 @@
             Register.FlatStyle = FlatStyle.Flat;
             Register.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             Register.ForeColor = Color.Black;
-            Register.Location = new Point(44, 394);
+            Register.Location = new Point(50, 464);
+            Register.Margin = new Padding(3, 4, 3, 4);
             Register.Name = "Register";
-            Register.Size = new Size(90, 36);
+            Register.Size = new Size(103, 42);
             Register.TabIndex = 12;
             Register.Text = "Register";
             Register.UseVisualStyleBackColor = false;
             Register.Click += Register_Click;
             // 
-            // confirm
+            // cPasswordBox
             // 
-            confirm.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            confirm.BackColor = Color.White;
-            confirm.BorderStyle = BorderStyle.None;
-            confirm.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            confirm.ForeColor = Color.DimGray;
-            confirm.Location = new Point(44, 321);
-            confirm.MaximumSize = new Size(383, 28);
-            confirm.MinimumSize = new Size(153, 28);
-            confirm.Name = "confirm";
-            confirm.Size = new Size(383, 20);
-            confirm.TabIndex = 11;
-            confirm.Text = "Confirm Password";
+            cPasswordBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cPasswordBox.BackColor = Color.White;
+            cPasswordBox.BorderStyle = BorderStyle.None;
+            cPasswordBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cPasswordBox.ForeColor = Color.DimGray;
+            cPasswordBox.Location = new Point(50, 378);
+            cPasswordBox.Margin = new Padding(3, 4, 3, 4);
+            cPasswordBox.MaximumSize = new Size(438, 28);
+            cPasswordBox.MinimumSize = new Size(175, 28);
+            cPasswordBox.Name = "cPasswordBox";
+            cPasswordBox.PasswordChar = '*';
+            cPasswordBox.PlaceholderText = "Confirm Password";
+            cPasswordBox.Size = new Size(438, 28);
+            cPasswordBox.TabIndex = 11;
             // 
-            // password
+            // passwordBox
             // 
-            password.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            password.BackColor = Color.White;
-            password.BorderStyle = BorderStyle.None;
-            password.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            password.ForeColor = Color.DimGray;
-            password.Location = new Point(44, 250);
-            password.MaximumSize = new Size(383, 28);
-            password.MinimumSize = new Size(153, 28);
-            password.Name = "password";
-            password.Size = new Size(383, 20);
-            password.TabIndex = 10;
-            password.Text = " Password";
+            passwordBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            passwordBox.BackColor = Color.White;
+            passwordBox.BorderStyle = BorderStyle.None;
+            passwordBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            passwordBox.ForeColor = Color.DimGray;
+            passwordBox.Location = new Point(50, 294);
+            passwordBox.Margin = new Padding(3, 4, 3, 4);
+            passwordBox.MaximumSize = new Size(438, 28);
+            passwordBox.MinimumSize = new Size(175, 28);
+            passwordBox.Name = "passwordBox";
+            passwordBox.PasswordChar = '*';
+            passwordBox.PlaceholderText = " Password";
+            passwordBox.Size = new Size(438, 28);
+            passwordBox.TabIndex = 10;
             // 
-            // email
+            // emailBox
             // 
-            email.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            email.BackColor = Color.White;
-            email.BorderStyle = BorderStyle.None;
-            email.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            email.ForeColor = Color.DimGray;
-            email.Location = new Point(44, 177);
-            email.MaximumSize = new Size(383, 28);
-            email.MinimumSize = new Size(153, 28);
-            email.Name = "email";
-            email.Size = new Size(383, 20);
-            email.TabIndex = 9;
-            email.Text = " Your Email";
+            emailBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            emailBox.BackColor = Color.White;
+            emailBox.BorderStyle = BorderStyle.None;
+            emailBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            emailBox.ForeColor = Color.DimGray;
+            emailBox.Location = new Point(50, 208);
+            emailBox.Margin = new Padding(3, 4, 3, 4);
+            emailBox.MaximumSize = new Size(438, 28);
+            emailBox.MinimumSize = new Size(175, 28);
+            emailBox.Name = "emailBox";
+            emailBox.PlaceholderText = " Your Email";
+            emailBox.Size = new Size(438, 28);
+            emailBox.TabIndex = 9;
             // 
-            // phone
+            // mobileBox
             // 
-            phone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            phone.BackColor = Color.White;
-            phone.BorderStyle = BorderStyle.None;
-            phone.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            phone.ForeColor = Color.DimGray;
-            phone.Location = new Point(44, 107);
-            phone.MaximumSize = new Size(383, 28);
-            phone.MinimumSize = new Size(153, 28);
-            phone.Name = "phone";
-            phone.Size = new Size(383, 20);
-            phone.TabIndex = 8;
-            phone.Text = " Phone Number";
+            mobileBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            mobileBox.BackColor = Color.White;
+            mobileBox.BorderStyle = BorderStyle.None;
+            mobileBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            mobileBox.ForeColor = Color.DimGray;
+            mobileBox.Location = new Point(50, 126);
+            mobileBox.Margin = new Padding(3, 4, 3, 4);
+            mobileBox.MaximumSize = new Size(438, 28);
+            mobileBox.MinimumSize = new Size(175, 28);
+            mobileBox.Name = "mobileBox";
+            mobileBox.PlaceholderText = " Phone Number";
+            mobileBox.Size = new Size(438, 28);
+            mobileBox.TabIndex = 8;
             // 
             // label4
             // 
@@ -268,21 +256,42 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(44, 41);
+            label4.Location = new Point(50, 48);
             label4.Name = "label4";
-            label4.Size = new Size(180, 32);
+            label4.Size = new Size(203, 37);
             label4.TabIndex = 2;
             label4.Text = "Contact Details";
             label4.TextAlign = ContentAlignment.TopCenter;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(50, 542);
+            label2.Name = "label2";
+            label2.Size = new Size(173, 20);
+            label2.TabIndex = 13;
+            label2.Text = "Already has an account? ";
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(229, 542);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(46, 20);
+            linkLabel1.TabIndex = 14;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Login";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // admin_reg
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(1185, 865);
+            ClientSize = new Size(1354, 1018);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "admin_reg";
             Text = "admin_reg";
             Load += admin_reg_Load;
@@ -297,19 +306,19 @@
 
         private Panel panel1;
         private Label label1;
-        private ComboBox Title;
+        private ComboBox titleComboBox;
         private Label label3;
-        private TextBox first;
-        private TextBox last;
-        private TextBox name;
-        private ComboBox position;
-        private Label label2;
+        private TextBox fnameBox;
+        private TextBox lnameBox;
         private Panel panel2;
-        private TextBox confirm;
-        private TextBox password;
-        private TextBox email;
-        private TextBox phone;
+        private TextBox cPasswordBox;
+        private TextBox passwordBox;
+        private TextBox emailBox;
+        private TextBox mobileBox;
         private Label label4;
         private Button Register;
+        private TextBox accessCodeBox;
+        private LinkLabel linkLabel1;
+        private Label label2;
     }
 }

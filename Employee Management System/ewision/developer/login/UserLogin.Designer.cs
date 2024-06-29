@@ -35,6 +35,7 @@
             label3 = new Label();
             button2 = new Button();
             label1 = new Label();
+            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoSize = true;
             panel1.BackColor = Color.FromArgb(34, 113, 221);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(passwordBox);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(usernameBox);
@@ -75,7 +77,7 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(76, 237);
             label2.Name = "label2";
-            label2.Size = new Size(91, 23);
+            label2.Size = new Size(101, 25);
             label2.TabIndex = 7;
             label2.Text = "Password :";
             // 
@@ -99,7 +101,7 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(76, 134);
             label3.Name = "label3";
-            label3.Size = new Size(96, 23);
+            label3.Size = new Size(108, 25);
             label3.TabIndex = 5;
             label3.Text = "Username :";
             // 
@@ -127,11 +129,21 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(212, 56);
             label1.Name = "label1";
-            label1.Size = new Size(136, 32);
+            label1.Size = new Size(154, 37);
             label1.TabIndex = 0;
             label1.Text = "User Login";
             label1.TextAlign = ContentAlignment.TopCenter;
             label1.Click += label1_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(70, 40);
+            button1.TabIndex = 10;
+            button1.Text = "Home";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // UserLogin
             // 
@@ -162,5 +174,6 @@
         private TextBox usernameBox;
         private TextBox passwordBox;
         private Label label2;
+        private Button button1;
     }
 }

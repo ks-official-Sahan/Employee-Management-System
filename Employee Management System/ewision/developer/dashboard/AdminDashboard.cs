@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Employee_Management_System
 {
@@ -19,7 +20,7 @@ namespace Employee_Management_System
         //private int tempIndex;
         private Form activeForm;
 
-        public static User User { get; set; }
+        public static ewision.developer.model.User User { get; set; }
 
         public AdminDashboard()
         {
@@ -34,7 +35,7 @@ namespace Employee_Management_System
             //OpenChildForm(new Profile(), Profile);
         }
 
-        public void SetUser(User user)
+        public void SetUser(ewision.developer.model.User user)
         {
             User = user;
             OpenChildForm(new ProfileA(), Profile);
@@ -127,6 +128,14 @@ namespace Employee_Management_System
         private void button3_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Salary(), sender);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //SetUser(null);
+            AdminLogin adminLogin = new AdminLogin();
+            adminLogin.Show();
+            this.Hide();
         }
     }
 }

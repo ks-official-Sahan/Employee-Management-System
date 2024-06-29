@@ -95,5 +95,10 @@ namespace Employee_Management_System.user_dashboard_pages
             reset();
             LoadStatus();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadStatus();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Employee_Management_System.ewision.developer.model;
 using Employee_Management_System.user_dashboard_pages;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace Employee_Management_System
         //private int tempIndex;
         private Form activeForm;
 
-        public static User User { get; set; }
+        public static ewision.developer.model.User User { get; set; }
 
         public UserDashboard()
         {
@@ -34,7 +35,7 @@ namespace Employee_Management_System
             //OpenChildForm(new Profile(), Profile);
         }
 
-        public void SetUser(User user)
+        public void SetUser(ewision.developer.model.User user)
         {
             User = user;
             OpenChildForm(new Profile(), Profile);
@@ -112,6 +113,14 @@ namespace Employee_Management_System
         private void community_Click(object sender, EventArgs e)
         {
             OpenChildForm(new user_dashboard_pages.Community(), sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //SetUser(null);
+            UserLogin userLogin = new UserLogin();
+            userLogin.Show();
+            this.Hide();
         }
     }
 }

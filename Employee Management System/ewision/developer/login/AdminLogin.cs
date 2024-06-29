@@ -87,5 +87,18 @@ namespace Employee_Management_System
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application application = new Application();
+            application.Show();
+            this.Dispose();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new admin_reg().Show();
+            this.Hide();
+        }
     }
 }
