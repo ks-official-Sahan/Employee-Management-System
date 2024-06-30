@@ -36,14 +36,14 @@
             titleComboBox = new ComboBox();
             label1 = new Label();
             panel2 = new Panel();
+            linkLabel1 = new LinkLabel();
+            label2 = new Label();
             Register = new Button();
             cPasswordBox = new TextBox();
             passwordBox = new TextBox();
             emailBox = new TextBox();
             mobileBox = new TextBox();
             label4 = new Label();
-            label2 = new Label();
-            linkLabel1 = new LinkLabel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -75,6 +75,7 @@
             accessCodeBox.MaximumSize = new Size(438, 28);
             accessCodeBox.MinimumSize = new Size(175, 28);
             accessCodeBox.Name = "accessCodeBox";
+            accessCodeBox.PasswordChar = '*';
             accessCodeBox.PlaceholderText = "Access Code";
             accessCodeBox.Size = new Size(433, 28);
             accessCodeBox.TabIndex = 9;
@@ -167,6 +168,26 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(569, 671);
             panel2.TabIndex = 1;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(229, 542);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(46, 20);
+            linkLabel1.TabIndex = 14;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Login";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(50, 542);
+            label2.Name = "label2";
+            label2.Size = new Size(173, 20);
+            label2.TabIndex = 13;
+            label2.Text = "Already has an account? ";
             // 
             // Register
             // 
@@ -263,26 +284,6 @@
             label4.Text = "Contact Details";
             label4.TextAlign = ContentAlignment.TopCenter;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(50, 542);
-            label2.Name = "label2";
-            label2.Size = new Size(173, 20);
-            label2.TabIndex = 13;
-            label2.Text = "Already has an account? ";
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(229, 542);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(46, 20);
-            linkLabel1.TabIndex = 14;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Login";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
             // admin_reg
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -293,6 +294,7 @@
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "admin_reg";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "admin_reg";
             Load += admin_reg_Load;
             panel1.ResumeLayout(false);

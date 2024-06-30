@@ -22,6 +22,12 @@ namespace Employee_Management_System
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            LoadTitles();
         }
 
         private Dictionary<string, string> titleMap = new Dictionary<string, string>();
@@ -178,7 +184,7 @@ namespace Employee_Management_System
 
                 if (dataReader.Read())
                 {
-                    string accessCode = dataReader.GetString("title");
+                    string accessCode = dataReader.GetString("code");
                     if (accessCode != "")
                     {
                         return accessCode;
